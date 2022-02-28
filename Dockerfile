@@ -6,6 +6,7 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN apt update
 RUN apt install --no-install-recommends yarn
 RUN yarn --version
+RUN yarn add bootstrap@4.6.1 jquery popper.js
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock

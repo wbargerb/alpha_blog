@@ -1,5 +1,30 @@
-<h1> Articles Index </h1>
-<table>
+<h1 class="text-center mt-4"> Listing all Articles </h1>
+  
+<div class="container">
+  <% @articles.each do |article|%>
+    <div class = "row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header text-italic">
+            Created by Wim Bargerbos!
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-success"%></h5>
+            <p class="card-text"> <%= truncate(article.description, length: 100)%></p>
+            <a><%= link_to "View", article_path(article), class: "btn btn-outline-success"%></a>
+            <a><%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info"%></a>
+            <a><%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger"%></a>
+          </div>
+          <div class="card-footer text-muted">
+            <small> Created <%= time_ago_in_words(article.created_at) %>
+            Edited <%=time_ago_in_words(article.updated_at)%> </small>
+          </div>
+        </div>
+      </div>  
+    </div>
+  <%end%>
+</div>
+<!--<table>
   <thead>
     <th>Title</th>
     <th>Description</th>
@@ -17,7 +42,7 @@
       </tr>
     <% end %>
   </tbody>  		
-</table>
+</table> -->
 <p>
   <%= link_to 'create new Article', new_article_path %>
 </p>

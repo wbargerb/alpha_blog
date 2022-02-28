@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
 
-  before_action :article_find, only: [:show, :edit, :update, :delete]
-
+  before_action :article_find, only: [:show, :edit, :update, :destroy]
+  def home
+  end
 
   def show
   end
@@ -37,7 +38,7 @@ class ArticlesController < ApplicationController
   end
   def destroy
     @article.destroy
-    redirect_to @article 
+    redirect_to articles_path
   end
   private 
 
