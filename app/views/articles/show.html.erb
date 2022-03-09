@@ -5,21 +5,14 @@
       <div class="col-8 mt-4">
         <div class="card text-center shadow mb-5 bg-white rounded">
           <div class="card-header text-italic">
-            Created by Wim Bargerbos!
+            By <%= @article.user.username if @article.user %>
           </div>
           <div class="card-body">
             <div class="card-text text-left"> <%=simple_format(@article.description)%></div>
             <a><%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info"%></a>
             <a><%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger"%></a>
           </div>
-          <div class="card-footer text-muted">
-            <small> Created <%= time_ago_in_words(@article.created_at) ago,%>
-            Edited <%=time_ago_in_words(@article.updated_at) ago%> </small>
-          </div>
         </div>
       </div>  
     </div>
 </div>
-
-
-
