@@ -1,8 +1,8 @@
-<% if @article.errors.any? %>
+<% if obj.errors.any? %>
   <div class="alert alert-dismissible alert-danger fade show" role="alert">
-    <h4 class="alert-heading">This is gone wrong with creation</h4>
+    <h4 class="alert-heading">This is gone wrong with creation of <%= obj.class.name.downcase %> </h4>
     <ul>
-      <% @article.errors.full_messages.each do |msg| %>
+      <% obj.errors.full_messages.each do |msg| %>
         <li><%=msg%></li>
       <%end%>
     </ul>
